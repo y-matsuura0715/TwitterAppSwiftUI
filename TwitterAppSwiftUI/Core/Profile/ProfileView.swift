@@ -9,7 +9,13 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        Text("ProfileView")
+        VStack(alignment: .leading){
+            headerView
+            ActionButtons
+            userInfoDetails
+
+            Spacer()
+        }
     }
 }
 
@@ -18,3 +24,113 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView()
     }
 }
+
+extension ProfileView{
+    var headerView: some View {
+        ZStack(alignment: .bottomLeading){
+            Color(.systemBlue)
+                .ignoresSafeArea()
+            
+            VStack{
+                //ホーム画面への戻りボタン
+                Button(action: {
+                    
+                }, label: {
+                    Image(systemName: "arrow.left")
+                        .resizable()
+                        .frame(width: 20, height: 16)
+                        .foregroundColor(.white)
+                        .offset(x: 16, y: 12)
+                })
+                
+                //プロフィール画像
+                Circle().frame(width: 72, height: 72)
+                    .offset(x: 16, y: 24)
+            }
+
+        }
+        .frame(height:  96)
+    }
+    
+    var ActionButtons: some View{
+        HStack {
+            Spacer()
+            
+            //通知ボタン
+            Image(systemName: "bell.badge")
+                .font(.title3)
+                .padding(6)
+                .overlay(Circle().stroke(Color.gray, lineWidth:  0.75))
+            
+            //プロフィール編集ボタン
+            Button(action: {
+                
+            }, label: {
+                Text("Edit Profile")
+                    .font(.subheadline).bold()
+                    .frame(width: 120, height: 32)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray, lineWidth: 0.75))
+            })
+        }
+        .padding(.trailing)
+    }
+    
+    var userInfoDetails: some View{
+        VStack(alignment: .leading, spacing: 4){
+            
+            //ユーザ名・公式アカウントマーク
+            HStack{
+                Text("Heath Leger")
+                    .font(.title2).bold()
+                
+                Image(systemName: "checkmark.seal.fill")
+                    .foregroundColor(Color(.systemBlue))
+            }
+            //アカウントID
+            Text("@joker")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+            
+            Text("Your moms favorite villain")
+                .font(.subheadline)
+                .padding(.vertical)
+            
+            //居住地・サイトリンク
+            HStack(spacing: 24) {
+                HStack {
+                    Image(systemName: "mappin.and.ellipse")
+                    Text("Cotham, NY")
+                }
+                
+                HStack{
+                    Image(systemName: "link")
+                    Text("www.thejoker.com")
+                }
+            }
+            .font(.caption)
+            .foregroundColor(.gray)
+            
+            //フォロー数・フォロワー数
+            HStack{
+                HStack {
+                    Text("82")
+                        .font(.subheadline)
+                    Text("Following")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+                
+                HStack{
+                    Text("4")
+                        .font(.subheadline)
+                    Text("Followers")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding(.vertical)
+        }
+        .padding(.horizontal)
+    }
+}
+
