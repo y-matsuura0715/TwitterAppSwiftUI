@@ -118,23 +118,7 @@ extension ProfileView{
             .foregroundColor(.gray)
             
             //フォロー数・フォロワー数
-            HStack{
-                HStack {
-                    Text("82")
-                        .font(.subheadline)
-                    Text("Following")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-                
-                HStack{
-                    Text("4")
-                        .font(.subheadline)
-                    Text("Followers")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-            }
+            UserStatsView()
             .padding(.vertical)
         }
         .padding(.horizontal)
