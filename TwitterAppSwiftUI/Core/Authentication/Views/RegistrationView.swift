@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegistrationView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @State private var email = ""
     @State private var username = ""
     @State private var fullname = ""
@@ -43,7 +44,7 @@ struct RegistrationView: View {
             Spacer()
             
             Button {
-                
+                presentationMode.wrappedValue.dismiss()
             } label: {
                 HStack{
                     Text("Already have an account?")
@@ -57,6 +58,7 @@ struct RegistrationView: View {
                 .foregroundColor(Color(.systemBlue))
             }
         }
+        .ignoresSafeArea()
     }
 }
 
