@@ -13,6 +13,7 @@ struct ProfilePhotoSelectorView: View {
     @State private var selectedImage : UIImage?
     @State private var profileImage: Image?
     @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         VStack {
             AuthHeaderView(title1: "Setup account ", title2: "Add a profile photo")
