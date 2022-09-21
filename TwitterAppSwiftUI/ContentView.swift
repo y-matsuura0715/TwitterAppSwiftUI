@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var ShowMenu = false
     @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         Group {
             //no user logged in
@@ -19,7 +20,6 @@ struct ContentView: View {
                 //have a logged in user
                 mainInterfaceView
             }
-           
         }
     }
 }

@@ -23,6 +23,8 @@
 		99457BBF28C38D5D00B71F5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99457BBE28C38D5D00B71F5A /* Preview Assets.xcassets */; };
 		99457BCE28C38E9100B71F5A /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99457BCD28C38E9100B71F5A /* FeedView.swift */; };
 		99457BD128C3904000B71F5A /* TweetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99457BD028C3904000B71F5A /* TweetRowView.swift */; };
+		99693E3B28D8508B007DC12C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99693E3A28D8508B007DC12C /* ImagePicker.swift */; };
+		99693E3D28D8645D007DC12C /* imageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99693E3C28D8645D007DC12C /* imageUploader.swift */; };
 		99714A8028C8F2FD00507CC7 /* NewTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99714A7F28C8F2FD00507CC7 /* NewTweetView.swift */; };
 		99714A8228C8F6B200507CC7 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99714A8128C8F6B200507CC7 /* TextArea.swift */; };
 		99E59EC828C7B0A10012F8F4 /* SideMenuOptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E59EC728C7B0A00012F8F4 /* SideMenuOptionRowView.swift */; };
@@ -37,6 +39,7 @@
 		99EB9DC028D0372F008B8FBD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99EB9DBF28D0372F008B8FBD /* FirebaseFirestoreSwift */; };
 		99EB9DC228D0372F008B8FBD /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 99EB9DC128D0372F008B8FBD /* FirebaseStorage */; };
 		99EB9DC428D03D93008B8FBD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB9DC328D03D93008B8FBD /* AuthViewModel.swift */; };
+		99EB9DC628D5AFB5008B8FBD /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB9DC528D5AFB5008B8FBD /* ProfilePhotoSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,8 @@
 		99457BBE28C38D5D00B71F5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99457BCD28C38E9100B71F5A /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		99457BD028C3904000B71F5A /* TweetRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRowView.swift; sourceTree = "<group>"; };
+		99693E3A28D8508B007DC12C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		99693E3C28D8645D007DC12C /* imageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageUploader.swift; sourceTree = "<group>"; };
 		99714A7F28C8F2FD00507CC7 /* NewTweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTweetView.swift; sourceTree = "<group>"; };
 		99714A8128C8F6B200507CC7 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		99E59EC728C7B0A00012F8F4 /* SideMenuOptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionRowView.swift; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 		99EB9DB628CCBA47008B8FBD /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		99EB9DB828D0353C008B8FBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		99EB9DC328D03D93008B8FBD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		99EB9DC528D5AFB5008B8FBD /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +200,7 @@
 		99457BB628C38D5B00B71F5A /* TwitterAppSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				99693E3928D8506A007DC12C /* Utils */,
 				99457BC828C38D9B00B71F5A /* Model */,
 				99457BC728C38D9B00B71F5A /* Extensions */,
 				99457BC628C38D9800B71F5A /* Services */,
@@ -235,6 +242,7 @@
 		99457BC628C38D9800B71F5A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				99693E3C28D8645D007DC12C /* imageUploader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -301,6 +309,14 @@
 			path = Tweets;
 			sourceTree = "<group>";
 		};
+		99693E3928D8506A007DC12C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				99693E3A28D8508B007DC12C /* ImagePicker.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		99714A7C28C8F2A600507CC7 /* UploadTweet */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +363,7 @@
 			children = (
 				99EB9DA928CCA2F9008B8FBD /* LoginView.swift */,
 				99EB9DAB28CCA319008B8FBD /* RegistrationView.swift */,
+				99EB9DC528D5AFB5008B8FBD /* ProfilePhotoSelectorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -444,12 +461,15 @@
 				9900F35F28C3A38B00D6B523 /* MessagesView.swift in Sources */,
 				9900F37C28C6569C00D6B523 /* SideMenuView.swift in Sources */,
 				99457BD128C3904000B71F5A /* TweetRowView.swift in Sources */,
+				99693E3D28D8645D007DC12C /* imageUploader.swift in Sources */,
 				9900F37B28C6569C00D6B523 /* SideMenuViewModel.swift in Sources */,
 				9900F36128C4E66F00D6B523 /* TweetFilterViewModel.swift in Sources */,
 				99EB9DB728CCBA47008B8FBD /* AuthHeaderView.swift in Sources */,
+				99EB9DC628D5AFB5008B8FBD /* ProfilePhotoSelectorView.swift in Sources */,
 				99457BCE28C38E9100B71F5A /* FeedView.swift in Sources */,
 				99EB9DB028CCB6AE008B8FBD /* CustomInputField.swift in Sources */,
 				99457BB828C38D5B00B71F5A /* TwitterAppSwiftUIApp.swift in Sources */,
+				99693E3B28D8508B007DC12C /* ImagePicker.swift in Sources */,
 				9900F35728C3A2B300D6B523 /* ExploreView.swift in Sources */,
 				99714A8228C8F6B200507CC7 /* TextArea.swift in Sources */,
 				99E59EC828C7B0A10012F8F4 /* SideMenuOptionRowView.swift in Sources */,

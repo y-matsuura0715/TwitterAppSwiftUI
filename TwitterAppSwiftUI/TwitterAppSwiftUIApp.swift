@@ -20,8 +20,8 @@ struct TwitterAppSwiftUIApp: App {
         WindowGroup {
             NavigationView {
                 ContentView()
-                    .environmentObject(viewModel)
             }
+            .environmentObject(viewModel)
         }
     }
 }

@@ -19,7 +19,8 @@ struct RegistrationView: View {
     var body: some View {
         // parent container
         VStack {
-            // header view
+            NavigationLink(destination: ProfilePhotoSelectorView(), isActive: $viewModel.didAuthenticationUser, label: { })
+            
             AuthHeaderView(title1: "Get started.", title2: "Create Your Account")
             VStack(spacing: 40){
                 CustomInputField(imageName: "envelope", placeholderText: "Email", text: $email)
@@ -61,6 +62,7 @@ struct RegistrationView: View {
             }
         }
         .ignoresSafeArea()
+        
     }
 }
 
