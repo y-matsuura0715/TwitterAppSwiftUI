@@ -17,8 +17,8 @@ struct RegistrationView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        // parent container
         VStack {
+            //ユーザ登録情報入力後、didAuthenticationUserのフラグにより、画像アップロード画面へ遷移
             NavigationLink(destination: ProfilePhotoSelectorView(), isActive: $viewModel.didAuthenticationUser, label: { })
             
             AuthHeaderView(title1: "Get started.", title2: "Create Your Account")

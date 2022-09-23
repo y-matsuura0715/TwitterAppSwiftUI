@@ -30,6 +30,7 @@ class AuthViewModel: ObservableObject {
             }
             guard let user = result?.user else { return }
             self.userSession = user
+            self.fetchUser()
             print("DEBUG: Did log user in..")
         }
         
@@ -55,21 +56,26 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    //ログアウト
     func signOut(){
         userSession = nil
         try? Auth.auth().signOut()
     }
     
+    //画像をFireStoreへアップロード
+    //上記成功の場合、セッションの確定を行う
     func uploadPrifileImage(_ image: UIImage) {
         guard let uid = tempUserSession?.uid else { return }
         
         ImageUploader.uploadImage(image: image) { profileImageUrl in
             Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl": profileImageUrl]) {_ in
                 self.userSession = self.tempUserSession
+                self.fetchUser()
             }
         }
     }
     
+    //
     func fetchUser() {
         guard let uid = self.userSession?.uid else { return }
         

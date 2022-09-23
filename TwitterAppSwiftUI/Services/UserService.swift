@@ -9,7 +9,7 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct UserService {
-    
+    //uidをもとにUser情報をコールバックで戻す
     func fetchUser(with uid: String, completion: @escaping(User) -> Void) {
         Firestore.firestore().collection("users")
             .document(uid)
