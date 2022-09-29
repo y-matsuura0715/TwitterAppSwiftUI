@@ -6,37 +6,47 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TweetRowView: View {
+    let tweet: Tweet
+    
     var body: some View {
         VStack(alignment: .leading){
             
-            //プロフィール画像 + ユーザ情報 + ツイート
-            HStack(alignment: .top, spacing: 12) {
-                Circle()
-                    .frame(width:  56, height: 56)
-                    .foregroundColor(Color(.systemBlue))
-                
-                //ユーザ情報 + ツイート日時
-                VStack(alignment: .leading, spacing: 4){
-                    HStack{
-                        Text("林太郎")
-                            .font(.subheadline).bold()
+            if let user = tweet.user {
+                //プロフィール画像 + ユーザ情報 + ツイート
+                HStack(alignment: .top, spacing: 12) {
+                    KFImage(URL(string: user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width:  56, height: 56)
+                        .clipShape(Circle())
+                    
+                        VStack(alignment: .leading, spacing: 4){
+                            HStack{
+                                Text(user.fullname)
+                                    .font(.subheadline).bold()
+                                
+                                Text("@\(user.username)")
+                                    .foregroundColor(.gray)
+                                    .font(.caption)
+                                
+                                Text("2w")
+                                    .foregroundColor(.gray)
+                                    .font(.caption)
+                            }
                         
-                        Text("@batman")
-                            .foregroundColor(.gray)
-                            .font(.caption)
-                        
-                        Text("2w")
-                            .foregroundColor(.gray)
-                            .font(.caption)
-                    }
-                
-                    Text("今日も一日,SwiftUIのお勉強です")
-                        .font(.subheadline)
-                        .multilineTextAlignment(.leading)
+                            Text(tweet.caption)
+                                .font(.subheadline)
+                                .multilineTextAlignment(.leading)
+                        }
+                    
+                    //ユーザ情報 + ツイート日時
+
                 }
             }
+
             //アクションボタン
             HStack {
                 
@@ -78,8 +88,8 @@ struct TweetRowView: View {
     }
 }
 
-struct TweetRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        TweetRowView()
-    }
-}
+//struct TweetRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TweetRowView()
+//    }
+//}

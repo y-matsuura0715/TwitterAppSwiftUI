@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 
 struct UserService {
     //uidをもとにUser情報をコールバックで戻す
-    func fetchUser(with uid: String, completion: @escaping(User) -> Void) {
+    func fetchUser(withUid uid: String, completion: @escaping(User) -> Void) {
         Firestore.firestore().collection("users")
             .document(uid)
             .getDocument { snapshot, _ in
@@ -26,6 +26,7 @@ struct UserService {
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
                 let users = documents.compactMap({try? $0.data(as: User.self)})
+                print("確認1: \(users)")
                 completion(users)
             }
     }
