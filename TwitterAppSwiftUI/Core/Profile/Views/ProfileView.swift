@@ -11,12 +11,12 @@ import Kingfisher
 struct ProfileView: View {
     
     @State private var selectedFilter: TweetFilterViewModel = .tweets
+    @ObservedObject var viewModel: ProfileViewModel
     @Environment(\.presentationMode) var mode
     @Namespace var animation
-    private let user: User
     
     init (user: User) {
-        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
     }
     
     var body: some View {
@@ -57,7 +57,7 @@ extension ProfileView{
                 })
                 
                 //プロフィール画像
-                KFImage(URL(string: user.profileImageUrl))
+                KFImage(URL(string: viewModel.user.profileImageUrl))
                     .resizable()
                     .scaledToFill()
                     .clipShape(Circle())
@@ -97,14 +97,14 @@ extension ProfileView{
             
             //ユーザ名・公式アカウントマーク
             HStack{
-                Text(user.username)
+                Text(viewModel.user.username)
                     .font(.title2).bold()
                 
                 Image(systemName: "checkmark.seal.fill")
                     .foregroundColor(Color(.systemBlue))
             }
             //アカウントID
-            Text("@\(user.fullname)")
+            Text("@\(viewModel.user.fullname)")
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
@@ -167,9 +167,9 @@ extension ProfileView{
     var tweetView: some View{
         ScrollView {
             LazyVStack{
-                ForEach(0 ... 9, id: \.self){ _ in
-//                    TweetRowView()
-//                        .padding()
+                ForEach(viewModel.tweets(forFilter: self.selectedFilter)) { tweet in
+                    TweetRowView(tweet: tweet)
+                        .padding()
                 }
             }
         }
